@@ -1,0 +1,45 @@
+@UserManagementAPI_HostAddress = http://localhost:5000
+@token = replace-with-configured-token
+@userId = 00000000-0000-0000-0000-000000000001
+
+GET {{UserManagementAPI_HostAddress}}/users
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+
+GET {{UserManagementAPI_HostAddress}}/users/{{userId}}
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+
+POST {{UserManagementAPI_HostAddress}}/users
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Alex Example",
+  "email": "alex@example.test"
+}
+
+###
+
+PUT {{UserManagementAPI_HostAddress}}/users/{{userId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Alex Updated",
+  "email": "alex.updated@example.test"
+}
+
+###
+
+DELETE {{UserManagementAPI_HostAddress}}/users/{{userId}}
+Authorization: Bearer {{token}}
+
+###
+
+GET {{UserManagementAPI_HostAddress}}/users
+Accept: application/json
